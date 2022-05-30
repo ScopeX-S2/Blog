@@ -1,0 +1,42 @@
+th {
+    width: 50%;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 15px;
+}
+td {
+    padding: 20px;
+    border: 1px solid white;
+}
+.btn-action {
+    margin: 5px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    color: #ccc;
+    background: 0;
+    width: 85px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: 500ms ease;
+}
+.btn-action:hover {
+    color: white;
+    border-color: white;
+}
+.criar {
+    padding: 15px 90px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #ccc;
+    text-transform: uppercase;
+    background: 0;
+    cursor: pointer;
+    transition: 500ms ease;
+}
+.criar:hover {
+    color: white;
+    border-color: white;
+}

@@ -1,0 +1,8 @@
+<title><%= article.title %></title>
+<%- include('partials/header.ejs') %>
+    <body>
+            <h2 style="color: white;"><%= article.title %></h2>
+            <p style="overflow-x: auto;"><%- article.body %></p>
+        <%- include('partials/menuser.ejs') %>
+    </body>
+<%- include('partials/footer.ejs') %>
