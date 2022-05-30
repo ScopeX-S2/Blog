@@ -1,0 +1,16 @@
+<head><link rel="stylesheet" href="../../CSS3/categorynew.css"><title>Edit Category</title> </head>
+<%- include('../partials/header.ejs') %>
+    <body>
+        <form class="form" method="POST" action="/category/update">
+            <h2>EDIT...</h2>
+            <input type="hidden" name="id" value="<%= category.id %>">
+            <p type="Name"><input class="boxinfo" type="text" name="title" placeholder="Edit Name..." autocomplete="off" required value="<%= category.title %>"></input></p>
+            <button>Send Edit</button>
+            <div class="info">
+              <div class="mail">ArtSticks</div>
+              <div class="mail">ARTcontact@artsticks.com</div>
+            </div>
+          </form>
+        <%- include('../partials/menu.ejs') %>
+    </body>
+<%- include('../partials/footer.ejs') %>

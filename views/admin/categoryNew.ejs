@@ -1,0 +1,15 @@
+<head><link rel="stylesheet" href="../../CSS3/categorynew.css"><title>New Category</title> </head>
+<%- include('../partials/header.ejs') %>
+    <body>
+        <form class="form" method="POST" action="/category/save">
+            <h2>CATEGORY...</h2>
+            <p type="Name"><input class="boxinfo" type="text" name="title" placeholder="Category Name..." autocomplete="off" required></input></p>
+            <button>Send Category</button>
+            <div class="info">
+              <div class="mail">ArtSticks</div>
+              <div class="mail">ARTcontact@artsticks.com</div>
+            </div>
+          </form>
+        <%- include('../partials/menu.ejs') %>
+    </body>
+<%- include('../partials/footer.ejs') %>

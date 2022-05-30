@@ -1,0 +1,21 @@
+<head><link rel="stylesheet" href="../../CSS3/articlenew.css"><title>New Article</title> </head>
+<%- include('../partials/header.ejs') %>
+    <body>
+        <form class="form" method="POST" action="/articles/save">
+            <h2>ARTICLE...</h2>
+            <p type="Name"><input class="boxinfo" type="text" name="title" placeholder="Name..." autocomplete="off" required></input></p>
+            <p type="Descrição"><textarea class="boxinfo" name="body" placeholder="Descrição..." autocomplete="off" required></textarea></p>
+            <select name="category" class="select">
+              <% Category.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.title %></option>
+              <% }) %>
+            </select>
+            <button>Send Article</button>
+            <div class="info">
+              <div class="mail">ArtSticks</div>
+              <div class="mail">ARTcontact@artsticks.com</div>
+            </div>
+          </form>
+        <%- include('../partials/menu.ejs') %>
+    </body>
+    <%- include('../partials/footer.ejs') %>

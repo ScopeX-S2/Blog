@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "69",
+  "description": "@sx.davii",
+  "main": "index.js",
+  "scripts": {
+    "SCRIPT": "Não tem erro!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ScopeX-S2"
+  },
+  "author": "SX7 BB",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.0",
+    "slugify": "^1.6.5",
+    "tinymce": "^6.0.3"
+  }
+}

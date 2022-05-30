@@ -1,0 +1,17 @@
+<head><title>Home</title></head>
+<link rel="stylesheet" href="../CSS3/home.css">
+<%- include('./partials/header.ejs') %>
+<body>
+    <%- include('./partials/menuser.ejs') %>
+    <div id="forEach">
+        <% article.forEach(article => { %>
+            <form action="/article/<%= article.slug %>" method="get">
+                <div class="articleT">
+                    <%= article.title %>
+                    <button class="btn-article" value="<%= article.slug %>">Ler mais</button>
+                </div>
+            </form>
+            <% }) %>
+</div>
+</body>
+<%- include('./partials/footer.ejs') %>
