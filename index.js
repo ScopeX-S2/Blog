@@ -8,7 +8,7 @@ const Article = require("./Articles/Article")
 const Category = require("./Categories/Category");
 const res = require("express/lib/response");
 const PT = 8080
-var manut = true;
+var manut = true
 
 //View Engine
 app.set('view engine', 'ejs');
