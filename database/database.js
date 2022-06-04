@@ -6,4 +6,4 @@ const connection = new Sequelize('blog', 'root', '44334455', {
     timazone: "-03:00"
 })
 
-module.exports = connection
+module.exports = connection;
