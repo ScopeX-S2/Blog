@@ -4,7 +4,8 @@
         <form class="form" method="POST" action="/user/update">
             <h2>EDIT...</h2>
             <p type="User"><input class="boxinfo" type="text" name="user" placeholder="Edit User..." autocomplete="off" required value="<%= user.user %>"></input></p>
-            <select name="adm" class="select">
+            <select name="adm" class="select" required>
+              <option value="">None</option>
               <option value="1">Admin</option>
               <option value="0">User</option>
             </select>
