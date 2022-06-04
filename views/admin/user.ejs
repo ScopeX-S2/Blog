@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+<head><link rel="stylesheet" href="../../CSS3/categories.css"><title>Users</title></head>
+<body>
+    <%- include('../partials/menu.ejs') %>
+   <main>
+       <a href="/users/create"><button class="criar">Criar</button></a>
+    <table>
+        <tr>
+          <th style="width: 5%;">ID</th>
+          <th style="width: 40%;">USER</th>
+          <th style="width: 10%;">ACTION</th>
+        </tr>
+        <% user.forEach(user => { %>
+            <tbody>
+                <tr style="text-align: center;">
+                    <td class="text-center align-middle"><%= user.id %></td>
+
+                      <td class="text-center align-middle"><%= user.user %></td>
+                    
+                    <td style="display: flex; flex-wrap: wrap; text-align: center; margin: auto;">
+                          <form action="/user/delete" method="POST">
+                              <input type="hidden" name="id" value="<%= user.id %>">
+                              <input type="hidden" name="user" value="<%= user.user %>">
+                              <button class="btn-action" style="text-align: center;">Delete</button>
+                          </form>
+                          <form action="/user/edit" method="POST">
+                              <input type="hidden" name="id" value="<%= user.id %>">
+                              <button class="btn-action">Edit</button>
+                          </form>
+                    </td>
+                  </tr>
+            </tbody>
+        <% }) %>
+      </table>
+   </main>
+</body>
+<%- include('../partials/footer.ejs') %>

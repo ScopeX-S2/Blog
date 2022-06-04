@@ -4,8 +4,9 @@ const slug = require("slugify")
 const { default: slugify } = require("slugify");
 const Category = require("../Categories/Category");
 const Article = require('./Article.js');
+const admin = require("../middlewares/adminAuth")
 
-router.get("/articles/new", (req, res) => {
+router.get("/articles/new", admin, (req, res) => {
     Category.findAll().then(categories => {
         res.render("admin/articleNew", {
             Category: categories
@@ -13,7 +14,7 @@ router.get("/articles/new", (req, res) => {
     })
 
 })
-router.post("/articles/save", (req, res) => {
+router.post("/articles/save", admin,(req, res) => {
     var title = req.body.title;
     var body = req.body.body;
     var category = req.body.category
@@ -30,7 +31,7 @@ router.post("/articles/save", (req, res) => {
         res.redirect("/articles/new")
     })
 })
-router.get("/articles", (req, res) => {
+router.get("/articles", admin,(req, res) => {
     Article.findAll({raw: true, order:[['ID', 'DESC']]}).then(article => {
             res.render("admin/articles", {
                 article: article
@@ -38,7 +39,7 @@ router.get("/articles", (req, res) => {
         })
     })
 })
-router.post("/article/edit", (req, res) => {
+router.post("/article/edit", admin, (req, res) => {
         var id = req.body.id;
         Article.findByPk(id).then(article => {
             Category.findAll({raw: true}).then(categories => {
@@ -52,7 +53,7 @@ router.post("/article/edit", (req, res) => {
         })
     })
 
-router.post("/article/delete", (req, res) => {
+router.post("/article/delete", admin, (req, res) => {
     var id = req.body.id
 
     if (id != undefined){
@@ -69,7 +70,7 @@ router.post("/article/delete", (req, res) => {
         res.redirect("/articles")
     }
 })
-router.post("/article/update", (req, res) => {
+router.post("/article/update", admin, (req, res) => {
     var id = req.body.id
     var title = req.body.title
     var category = req.body.category

@@ -2,18 +2,19 @@ const express = require("express")
 const router = express();
 const Category = require("./Category")
 const Article = require("../Articles/Article")
+const admin = require("../middlewares/adminAuth")
 const slug = require("slugify");
 const { default: slugify } = require("slugify");
 const { is } = require("express/lib/request");
 
-router.get("/categories", (req, res) => {
+router.get("/categories", admin, (req, res) => {
     Category.findAll({raw: true, order: [['title', 'ASC']]}).then(Category => {
         res.render("admin/categories", {
             category: Category
         })
     })
 })
-router.get("/category/new", (req, res) => {
+router.get("/category/new", admin, (req, res) => {
     res.render("admin/categoryNew")
 })
 router.post("/category/save", (req, res) => {
@@ -30,7 +31,7 @@ router.post("/category/save", (req, res) => {
         res.redirect("/category")
     }
 })
-router.post("/category/delete", (req, res) => {
+router.post("/category/delete", admin, (req, res) => {
     var id = req.body.id
 
     if (id != undefined){
@@ -47,7 +48,7 @@ router.post("/category/delete", (req, res) => {
         res.redirect("/categories")
     }
 })
-router.post("/category/edit", (req, res) => {
+router.post("/category/edit", admin, (req, res) => {
     var id = req.body.id
     Category.findByPk(id).then(categories => {
         if(categories != undefined) {
@@ -62,7 +63,7 @@ router.post("/category/edit", (req, res) => {
         })
     })
 
-router.post("/category/update", (req, res) => {
+router.post("/category/update", admin, (req, res) => {
     var id = req.body.id;
     var title = req.body.title;
     var category = req.body.category
@@ -78,13 +79,6 @@ router.post("/category/update", (req, res) => {
         include: [{model:Article}]
     }).then(() => {
         res.redirect("/categories")
-    })
-})
-router.get("/page/:page", (req, res) => {
-    var page = req.params.page;
-
-    Article.findAndCountAll().then(article => {
-        res.json(article)
     })
 })
 module.exports = router;

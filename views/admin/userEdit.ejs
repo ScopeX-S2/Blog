@@ -1,0 +1,20 @@
+<head><link rel="stylesheet" href="../../CSS3/articlenew.css"><title>Edit User</title> </head>
+<%- include('../partials/header.ejs') %>
+    <body>
+        <form class="form" method="POST" action="/user/update">
+            <h2>EDIT...</h2>
+            <p type="User"><input class="boxinfo" type="text" name="user" placeholder="Edit User..." autocomplete="off" required value="<%= user.user %>"></input></p>
+            <select name="adm" class="select">
+              <option value="1">Admin</option>
+              <option value="0">User</option>
+            </select>
+            <input type="hidden" name="id" value="<%= user.id %>">
+            <button>Send Edit</button>
+            <div class="info">
+              <div class="mail">ArtSticks</div>
+              <div class="mail">ARTcontact@artsticks.com</div>
+            </div>
+          </form>
+        <%- include('../partials/menu.ejs') %>
+    </body>
+<%- include('../partials/footer.ejs') %>
