@@ -1,2 +1,2 @@
 # Blog
-Blog com painel administrativo...
+Blog com painel administrativo... Desenvolvido com JavaScript e Node.js
