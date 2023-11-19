@@ -1,2 +1,2 @@
 # Blog
-Blog com painel administrativo... Desenvolvido com JavaScript e Node.js
+Blog com painel administrativo, desenvolvido com JavaScript Front-end(Node.js)
